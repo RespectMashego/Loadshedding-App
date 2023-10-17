@@ -15,9 +15,9 @@ import { SimpleLineIcons } from "@expo/vector-icons";
 import { Octicons } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 
-import { colors } from "../../styles/colors";
-import { fonts } from "../../styles/fonts";
-import StagesItem from "../../components/StagesItem";
+import { colors } from "../styles/colors";
+import { fonts } from "../styles/fonts";
+import StagesItem from "../components/StagesItem";
 import { LinearGradient } from "expo-linear-gradient";
 
 const LoadAreas = [
@@ -99,7 +99,7 @@ export default function TabOneScreen() {
             <Octicons name="search" size={30} color="black" />
           </TouchableOpacity>
         </View>
-        <LinearGradient
+        {/* <LinearGradient
           colors={["#FF5A5F", "#FF9A8B"]}
           start={[0, 0]}
           end={[1, 1]}
@@ -116,9 +116,9 @@ export default function TabOneScreen() {
         >
           <Ionicons name="add-outline" size={30} color="white" />
           <Text style={{ fontSize: 16,color:"white" }}>Add area</Text>
-        </LinearGradient>
+        </LinearGradient> */}
       </View>
-      <View style={{ marginVertical: 18 }}>
+      {/* <View style={{ marginVertical: 18 }}>
         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
           {LoadAreas.map((area, index) => (
             <TouchableOpacity key={index} style={styles.loadArea}>
@@ -126,7 +126,7 @@ export default function TabOneScreen() {
             </TouchableOpacity>
           ))}
         </ScrollView>
-      </View>
+      </View> */}
 
       <View>
         <View
@@ -134,6 +134,7 @@ export default function TabOneScreen() {
             backgroundColor: colors.primary.lightgrey,
             borderRadius: 20,
             padding: 10,
+            marginTop:30
           }}
         >
           <Text
@@ -225,7 +226,7 @@ const styles = StyleSheet.create({
     marginTop: 40,
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "space-between",
+    // justifyContent: "space-between",
   },
   loadArea: {
     marginTop: 10,
@@ -258,6 +259,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.primary.lightgrey,
     borderRadius: 20,
     padding: 10,
+    flex:1
   },
   slideDownButton: {
     backgroundColor: colors.primary.blue,
