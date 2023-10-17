@@ -1,57 +1,55 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import { colors } from "../styles/colors";
 import { fonts } from "../styles/fonts";
-import { FontAwesome } from "@expo/vector-icons";
+import { FontAwesome5 } from "@expo/vector-icons";
+import { LinearGradient } from "expo-linear-gradient";
 
 const StagesItem = ({ isCurrentOutage }) => {
   return (
-    <View style={[styles.container, isCurrentOutage && styles.currentOutage]}>
-      <View style={styles.header}>
-        <Text style={styles.dateText}>Monday, 16 October 2023</Text>
-      </View>
-      <View style={styles.stage}>
-        {isCurrentOutage && (
+    <LinearGradient
+      colors={isCurrentOutage ? ["#FF5A5F", "#FF9A8B"] : ["#4E7AC7", "#74B4E0"]}
+      start={[0, 0]}
+      end={[1, 1]}
+      style={[styles.container]}
+    >
+      <TouchableOpacity activeOpacity={0.7}>
+        <View style={styles.header}>
+          <Text style={styles.dateText}>Monday, 16 October 2023</Text>
+        </View>
+        <View style={styles.stage}>
           <View style={styles.stageBadge}>
-            <FontAwesome name="exclamation-circle" size={18} color={colors.primary.red} />
+            <FontAwesome5 name="bolt" size={20} color="white" />
           </View>
-        )}
-        <FontAwesome name="bolt" size={16} color={colors.primary.blue} />
-        <Text style={styles.stageText}>Stage 2</Text>
-      </View>
-      <View style={styles.time}>
-        <Text style={styles.timeText}>22:00 - 00:00</Text>
-      </View>
-    </View>
+          <Text style={styles.stageText}>Stage 2</Text>
+        </View>
+        <View style={styles.time}>
+          <Text style={styles.timeText}>22:00 - 00:00</Text>
+        </View>
+      </TouchableOpacity>
+    </LinearGradient>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "white",
-    borderRadius: 8,
-    borderWidth: 1,
-    borderColor: "#E5E5E5",
+    borderRadius: 12,
     marginVertical: 10,
-    shadowColor: "#000",
+    shadowColor: "rgba(0, 0, 0, 0.2)",
     shadowOffset: {
       width: 0,
       height: 2,
     },
-    shadowOpacity: 0.1,
+    shadowOpacity: 0.5,
     shadowRadius: 3,
     elevation: 3,
   },
-  currentOutage: {
-    borderColor: colors.primary.red,
-  },
   header: {
-    backgroundColor: colors.primary.blue,
-    borderTopLeftRadius: 8,
-    borderTopRightRadius: 8,
+    borderTopLeftRadius: 12,
+    borderTopRightRadius: 12,
     alignItems: "center",
     justifyContent: "center",
-    paddingVertical: 8,
+    paddingVertical: 12,
   },
   dateText: {
     fontFamily: fonts.medium,
@@ -62,20 +60,21 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
-    paddingVertical: 8,
+    paddingVertical: 12,
   },
   stageBadge: {
-    backgroundColor: colors.primary.red,
+    backgroundColor: "rgba(255, 255, 255, 0.3)",
     borderRadius: 50,
-    width: 36,
-    height: 36,
+    width: 40,
+    height: 40,
     alignItems: "center",
     justifyContent: "center",
-    marginRight: 8,
+    marginRight: 12,
   },
   stageText: {
     fontFamily: fonts.medium,
-    fontSize: 16,
+    fontSize: 18,
+    color: "white",
   },
   time: {
     paddingVertical: 8,
@@ -86,7 +85,7 @@ const styles = StyleSheet.create({
   timeText: {
     fontFamily: fonts.medium,
     fontSize: 18,
-    color: colors.primary.blue,
+    color: "white",
   },
 });
 
