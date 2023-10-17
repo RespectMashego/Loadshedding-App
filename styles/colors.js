@@ -1,8 +1,8 @@
 export const colors = {
   primary: {
     lightgrey: "#F5F5F5",
-    blue:"#4fa9f7",
-    green:"#038320",
-    black:"black"
+    black:"black",
+    green: "#00FF00",
+    blue: "#3182CE",
   },
 };
